@@ -8,7 +8,7 @@ fun main() {
     for (areaName in oldFileMap.keys) {
         val oldMap = oldFileMap[areaName]
         val newMap = newFileMap[areaName]
-        var specimenDate = baseDate;
+        var specimenDate = baseDate
         while (specimenDate.isBefore(today)) {
             val oldCount = oldMap?.get(specimenDate) ?: 0
             val newCount = newMap?.get(specimenDate) ?: 0

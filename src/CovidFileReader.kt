@@ -10,7 +10,7 @@ class CovidFileReader {
     companion object {
 
         fun readFileToMap(fileName: String): MutableMap<String?, MutableMap<LocalDate, Int>> {
-            var areaMap: MutableMap<String?, MutableMap<LocalDate, Int>> =
+            val areaMap: MutableMap<String?, MutableMap<LocalDate, Int>> =
                 mutableMapOf<String?, MutableMap<LocalDate, Int>>()
             processCsvLineByLine(File(fileName)) { row ->
                 if (isLowerTier(row)) {
@@ -21,7 +21,7 @@ class CovidFileReader {
                         val dailyCasesAsString = row["Daily lab-confirmed cases"] ?: row["newCasesBySpecimenDate"]
                         var dailyCasesAsFloat = 0.0f
                         if (dailyCasesAsString != null && !dailyCasesAsString.isNullOrBlank()) {
-                            dailyCasesAsFloat = dailyCasesAsString?.toFloat()
+                            dailyCasesAsFloat = dailyCasesAsString.toFloat()
                         }
                         val dailyCases = dailyCasesAsFloat.toInt()
 
@@ -39,7 +39,7 @@ class CovidFileReader {
         }
 
         fun extractPopulations(fileName: String): MutableMap<String?, Double> {
-            var resultMap = mutableMapOf<String?, Double>()
+            val resultMap = mutableMapOf<String?, Double>()
             processCsvLineByLine(File(fileName)) { row ->
                 if (isLowerTier(row)) {
                     val areaName = row["Area name"] ?: row["areaName"]
@@ -47,12 +47,12 @@ class CovidFileReader {
                         val rateAsString = row["Cumulative lab-confirmed cases rate"]  ?: row["cumCasesBySpecimenDateRate"]
                         var rateAsDouble = 0.0
                         if (rateAsString != null && !rateAsString.isNullOrBlank()) {
-                            rateAsDouble = rateAsString?.toDouble()
+                            rateAsDouble = rateAsString.toDouble()
                         }
                         val casesAsString = row["Cumulative lab-confirmed cases"] ?: row["cumCasesBySpecimenDate"]
                         var casesAsDouble = 0.0
                         if (casesAsString != null && !casesAsString.isNullOrBlank()) {
-                            casesAsDouble = casesAsString?.toDouble()
+                            casesAsDouble = casesAsString.toDouble()
                         }
                         if (casesAsDouble!= 0.0 && rateAsDouble!= 0.0) {
                             val population =  casesAsDouble / rateAsDouble

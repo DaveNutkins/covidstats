@@ -23,7 +23,7 @@ fun main() {
     ) : Int {
      val oldMap = oldFileMap[areaName]
      val newMap = newFileMap[areaName]
-     var specimenDate = LocalDate.of(2020, 3, 1);
+     var specimenDate = LocalDate.of(2020, 3, 1)
      var difference = 0
      while (specimenDate.isBefore(lastDate)) {
          val oldCount = oldMap?.get(specimenDate) ?: 0

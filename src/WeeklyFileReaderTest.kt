@@ -5,9 +5,9 @@ fun main() {
         val dailyMap = DailyImplier.implyDailyCases(weeklyMap)
         var sampleDate = weeklyMap.keys.min()!!.minusDays(6)
         while (!sampleDate!!.isAfter(lastWeeklyDate)) {
-            val count = dailyMap?.get(sampleDate) ?: 0
+            val count = dailyMap[sampleDate] ?: 0
             println("$sampleDate,$count")
-            sampleDate = sampleDate?.plusDays(1)
+            sampleDate = sampleDate.plusDays(1)
         }
     }
 

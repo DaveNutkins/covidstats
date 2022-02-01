@@ -38,7 +38,7 @@ fun main() {
     for(areaName in result.keys) {
         val areaMap = result[areaName]
         for (specimenDate in areaMap?.keys!!) {
-            val countArray = areaMap.get(specimenDate)
+            val countArray = areaMap[specimenDate]
             if (countArray != null) {
                 if (!isArrayIncreasing(countArray)) {
                     writer.write("${CovidFileReader.sanitiseAreaName(areaName)},$specimenDate")

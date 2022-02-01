@@ -9,8 +9,8 @@ fun main() {
     for (areaName in fileMap.keys)
         if (areaName != null) {
             val areaMap = fileMap[areaName]
-            var startOfYear = LocalDate.of(2021,1,1)
-            var currentDate = today.minusDays(5);
+            val startOfYear = LocalDate.of(2021,1,1)
+            var currentDate = today.minusDays(5)
             var bestWeeklyCount = weeklyTotal(areaMap, currentDate)
             var bestDate = currentDate
 

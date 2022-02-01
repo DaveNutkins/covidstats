@@ -10,10 +10,10 @@ fun main(args:Array<String>) {
     val firstDate = baseDate
     val lastDate = today
     var sampleDate = firstDate
-    while (sampleDate!!.isBefore(lastDate)) {
+    while (sampleDate.isBefore(lastDate)) {
         val count = areaMap?.get(sampleDate) ?: 0
         println("$sampleDate,$count")
-        sampleDate = sampleDate?.plusDays(1)
+        sampleDate = sampleDate.plusDays(1)
     }
 
 

@@ -13,9 +13,9 @@ fun main() {
 
 private fun renameFileForDate(date: LocalDate) {
   //  println("renaming " + oldFileName(date) + " to " + newFileName(date))
-    var sourceFile = File(oldFileName(date))
+    val sourceFile = File(oldFileName(date))
     if (sourceFile.exists()) {
-        var destFile = File(newFileName(date))
+        val destFile = File(newFileName(date))
         sourceFile.renameTo(destFile)
     } else {
         println(oldFileName(date) + " does not exist - skipping")

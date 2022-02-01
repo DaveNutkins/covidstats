@@ -40,7 +40,7 @@ private fun calculateChangeForArea(
 ) : Int {
     val oldMap = oldFileMap[areaName]
     val newMap = newFileMap[areaName]
-    var specimenDate = baseDate;
+    var specimenDate = baseDate
     var difference = 0
     while (specimenDate.isBefore(lastDate)) {
         val oldCount = oldMap?.get(specimenDate) ?: 0

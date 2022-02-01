@@ -9,7 +9,7 @@ class WeeklyFileReader {
 
     companion object {
         fun readFileToMap(fileName: String): MutableMap<LocalDate, Int> {
-            var dateMap = mutableMapOf<LocalDate, Int>()
+            val dateMap = mutableMapOf<LocalDate, Int>()
             processCsvLineByLine(File(fileName)) { row ->
                 val date = LocalDate.parse(row["Date"])
                 val weeklyCases = row["Weekly"]?.toInt() ?: 0
